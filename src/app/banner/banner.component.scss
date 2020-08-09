@@ -1,0 +1,29 @@
+div {
+    display: flex;
+    width: 100vw;
+    height: 5vh;
+    justify-content: space-between;
+    z-index: 2;
+    position: absolute;
+    background: linear-gradient(180deg, #57738D 88.54%, rgba(129, 146, 163, 0) 100%);
+    span {
+        margin-top: 10px;
+    }
+    .title {
+        margin-left: 10px;
+        font-size: 24px;
+        color: #FFFFFF;
+        font-weight: 300;
+        
+    }
+    .icon{
+        margin-right: 5px;
+        justify-self: flex-end;
+        color:white;
+    }
+}
+@media (max-width: 800px){
+    div {
+        width: 100vw;
+    }
+}
