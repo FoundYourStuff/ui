@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -6,12 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
-
-  constructor() { }
+  public userID: string = "";
+  public showCamera: boolean = false;
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    console.log(document.location);
   }
   camera(){
-    confirm("GET SEARCHED");
+    this.showCamera = true;
+  }
+  completeScan(event) {
+    let tag = this.getTagFromURL(event);
+    (tag !== "" && tag !== null)? this.userID = tag: confirm("HEY BAD QR CODE");
+    this.showCamera = false;
+    
+  }
+  getTagFromURL(url: string) : string {
+    try{
+      let tagURL = new URL(url);
+      return (tagURL.hostname === document.location.hostname)? tagURL.searchParams.get("id"): "";
+    } 
+    catch {
+      return "";
+    }
   }
 }

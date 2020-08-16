@@ -19,6 +19,7 @@
             font-size: 24px;
             font-weight: 500;
             margin-bottom: 3vh;
+            text-align: center;
         }
         .search {
             background: #EFEEEE;
@@ -51,7 +52,19 @@
         }
     }
 }
-
+.scanner {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+}
+:host zxing-scanner::ng-deep video{
+    height: 101vh;
+    width: 100vw;
+    object-fit: contain;
+}
 @media (max-width: 800px){
     .container {
         width: 100vw;
