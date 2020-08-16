@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 97vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    background: #486581;
+    position: absolute;
+    z-index: 1;
+    top: 3vh;
+}

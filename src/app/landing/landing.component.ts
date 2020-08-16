@@ -12,7 +12,6 @@ export class LandingComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log(document.location);
   }
   camera(){
     this.showCamera = true;
@@ -21,7 +20,6 @@ export class LandingComponent implements OnInit {
     let tag = this.getTagFromURL(event);
     (tag !== "" && tag !== null)? this.userID = tag: confirm("HEY BAD QR CODE");
     this.showCamera = false;
-    
   }
   getTagFromURL(url: string) : string {
     try{
