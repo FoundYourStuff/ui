@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class LandingComponent implements OnInit {
   public userID: string = "";
   public showCamera: boolean = false;
+  public popup: boolean = false;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -18,7 +19,7 @@ export class LandingComponent implements OnInit {
   }
   completeScan(event) {
     let tag = this.getTagFromURL(event);
-    (tag !== "" && tag !== null)? this.userID = tag: confirm("HEY BAD QR CODE");
+    (tag !== "" && tag !== null)? ()=>{this.userID = tag; this.getTag();}: confirm("HEY BAD QR CODE");
     this.showCamera = false;
   }
   getTagFromURL(url: string) : string {
@@ -29,5 +30,12 @@ export class LandingComponent implements OnInit {
     catch {
       return "";
     }
+  }
+  inputEnter(event){
+    console.log(event.path[0].value);
+    this.getTag();
+  }
+  getTag(){
+    this.popup = true;
   }
 }

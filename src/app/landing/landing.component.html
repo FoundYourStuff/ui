@@ -4,10 +4,10 @@
 <div class="container" *ngIf="!showCamera">
     <div class="center">
         <div class="phrase">
-            Helping dislocated thangs find their home.
+            Helping dislocated thongs find their home.
         </div>
         <div class="search">
-            <input type="text" [(value)]="userID">
+            <input type="text" [(value)]="userID" (keyup.enter)="inputEnter($event)">
             <button (click)="camera();">
                 <span class="material-icons icon" >
                     photo_camera
@@ -15,4 +15,7 @@
             </button>
         </div>
     </div>
+    
+</div>
+<div class="popup" *ngIf="popup">
 </div>

@@ -8,13 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './banner/banner.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
+import { TagsComponent } from './tags/tags.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BannerComponent,
     LandingComponent,
-    LoginComponent
+    LoginComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,
