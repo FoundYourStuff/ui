@@ -27,6 +27,7 @@ jobs:
       run: |
         npm update
         npm install -g @angular/cli > /dev/null
+        npm install
         ng build --prod
       
     - name: deploy
