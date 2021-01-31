@@ -9,6 +9,7 @@ import { BannerComponent } from './banner/banner.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { TagsComponent } from './tags/tags.component';
+import { TagCreateModalComponent } from './tag-create-modal/tag-create-modal.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TagsComponent } from './tags/tags.component';
     BannerComponent,
     LandingComponent,
     LoginComponent,
-    TagsComponent
+    TagsComponent,
+    TagCreateModalComponent
   ],
   imports: [
     BrowserModule,

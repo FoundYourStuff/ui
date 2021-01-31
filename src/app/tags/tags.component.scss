@@ -4,7 +4,7 @@
     height: 97vh;
     width: 100vw;
     align-items: center;
-    background: #89a8c7;
+    // background: #89a8c7;
     position: absolute;
     z-index: 1;
     top: 5vh;
@@ -23,4 +23,15 @@
     width: 60%;
     height: 40%;
     background: red;
+}
+#tags {
+    display: flexbox;
+    flex-direction: row;
+    .tag {
+        display: inline-flex;
+        width: 50vw;
+        height: 8vh;
+        background: white;
+        margin-top: 10px;
+    }
 }

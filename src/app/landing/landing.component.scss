@@ -5,7 +5,9 @@
     width: 100vw;
     align-items: center;
     justify-content: center;
-    background: #486581;
+    // background: url("../../assets/background.jpg");
+    background-size: cover;
+    background-position: center, center;
     position: absolute;
     z-index: 1;
     top: 3vh;
@@ -15,9 +17,9 @@
         flex-direction: column;
         .phrase {
             width: 70vw;
-            color: white;
+            color: black;
             font-size: 24px;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 3vh;
             text-align: center;
         }
@@ -29,6 +31,7 @@
             margin-left: 5%;
             width: 90%;
             height: 2rem;
+            display: inline-flex;
             input {
                 font-size: 14px;
                 font-weight: 400;
@@ -37,8 +40,6 @@
                 background: none;
                 border: none;
                 outline: none;
-                position: relative;
-                top: -20%;
             }
             button{
                 width: 18%;
@@ -83,10 +84,4 @@
     height: 100vh;
     width: 100vw;
     object-fit: contain;
-}
-@media (max-width: 800px){
-    .container {
-        width: 100vw;
-        height: 95vh;
-    }
 }

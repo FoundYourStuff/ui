@@ -11,7 +11,6 @@ export class LandingComponent implements OnInit {
   public showCamera: boolean = false;
   public popup: boolean = false;
   constructor(private router: Router) { }
-
   ngOnInit(): void {
   }
   camera(){
@@ -19,13 +18,19 @@ export class LandingComponent implements OnInit {
   }
   completeScan(event) {
     let tag = this.getTagFromURL(event);
-    (tag !== "" && tag !== null)? ()=>{this.userID = tag; this.getTag();}: confirm("HEY BAD QR CODE");
+    if(tag !== "" && tag !== null){
+      this.userID = tag;
+      this.getTag();
+    }
+    else {
+      confirm("HEY BAD QR CODE");
+    }
     this.showCamera = false;
   }
   getTagFromURL(url: string) : string {
     try{
       let tagURL = new URL(url);
-      return (tagURL.hostname === document.location.hostname)? tagURL.searchParams.get("id"): "";
+      return  tagURL.searchParams.get("id");
     } 
     catch {
       return "";

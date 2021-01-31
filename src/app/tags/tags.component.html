@@ -1,9 +1,11 @@
 <div class="container">
     <div class="controls">
-        <input type="text">
-        <button (click)="showTagCreate = !showTagCreate">New Tag</button>
+        <button (click)="this.showModal = !this.showModal">New Tag</button>
     </div>
-</div>
-<div class="new-tag" *ngIf="showTagCreate">
-
+    <div id="tags">
+        <div class="tag" *ngFor="let tag of tags">
+            {{tag.name}}
+        </div>
+    </div>
+    <app-tag-create-modal *ngIf="showModal" (modalDone)="this.showModal = false;this.addTag($event)"></app-tag-create-modal>
 </div>
