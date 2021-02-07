@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-tag-create-modal',
@@ -7,12 +8,15 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class TagCreateModalComponent implements OnInit {
   @Output() modalDone = new EventEmitter<string>();
+  tagForm = new FormGroup({
+    name: new FormControl(''),
+  });
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  addTag(tag){
-    this.modalDone.emit(tag)
+  onSubmit(){
+    this.modalDone.emit(this.tagForm.value);
   }
 }

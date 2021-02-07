@@ -10,6 +10,7 @@ import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { TagsComponent } from './tags/tags.component';
 import { TagCreateModalComponent } from './tag-create-modal/tag-create-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TagCreateModalComponent } from './tag-create-modal/tag-create-modal.com
     AppRoutingModule,
     BrowserAnimationsModule,
     ZXingScannerModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

@@ -1,6 +1,9 @@
 <div id="modal">
-        <form>
-            <input type="text">
-            <button (click)="this.addTag({name:'asd'});">Create</button>
+        <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">  
+            <label>
+                Name:
+                <input autofocus type="text" formControlName="name">
+            </label>
+            <button type="submit">Create</button>
         </form>
 </div>
