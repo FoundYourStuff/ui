@@ -66,18 +66,24 @@
     position: absolute;
     z-index: 10;
     background: #EFEEEE;
-    top: 60%;
+    top: 10%;
     width: 100%;
-    height: 40%;
+    height: 90%;
     border-radius: 10px;
     animation: 1s slide-up;
+    padding-top: 20px;
+    .close {
+        position: relative;
+        left: 95%;
+        top: -20px;
+    }
 }
 @keyframes slide-up {
     from {
         top: 100%;
     }
     to {
-        top: 60%;
+        top: 10%;
     }
 }
 :host zxing-scanner::ng-deep video{

@@ -7,8 +7,22 @@ import { Tag } from '../models/tag';
 export class TagService {
   tags:Tag[] = []
   constructor() { }
-  getTags() : Tag[]{
-    return this.tags;
+  getTags() : Promise<Tag[]>{
+    return new Promise(resolve => {
+      setTimeout(()=>{
+        resolve(this.tags);
+      })
+    });
+  }
+  getTag(id: String): Promise<Tag>{
+    return new Promise((resolve)=>{
+      setTimeout(()=>{
+        resolve({
+          name: 'swag',
+          id: 123
+        });
+      })
+    });
   }
   addTag(tag:Tag){
     this.tags.push(tag);

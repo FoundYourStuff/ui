@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TagService } from '../services/tag.service';
 
 @Component({
   selector: 'app-landing',
@@ -10,7 +12,8 @@ export class LandingComponent implements OnInit {
   public userID: string = "";
   public showCamera: boolean = false;
   public popup: boolean = false;
-  constructor(private router: Router) { }
+  public tagData = "";
+  constructor(private router: Router, private http: HttpClient, private tagService: TagService) { }
   ngOnInit(): void {
   }
   camera(){
@@ -41,6 +44,9 @@ export class LandingComponent implements OnInit {
     this.getTag();
   }
   getTag(){
-    this.popup = true;
+    this.tagService.getTag('asd').then(data => {
+      this.tagData = data.name;
+      this.popup = true;
+    })
   }
 }

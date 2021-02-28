@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { TagsComponent } from './tags/tags.component';
 import { TagCreateModalComponent } from './tag-create-modal/tag-create-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {  HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     ZXingScannerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
 
   ],
   providers: [],
