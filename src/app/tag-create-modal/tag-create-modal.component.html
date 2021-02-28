@@ -4,6 +4,11 @@
                 Name:
                 <input autofocus type="text" formControlName="name">
             </label>
+            <label for="file-upload" class="custom-file-upload">
+                <input id="file-upload" type="file" accept="image/*" (change)="changeListener($event)" class="">
+                <img *ngIf="imageSrc" [src]="imageSrc" alt="">
+            </label>
+
             <button type="submit">Create</button>
         </form>
 </div>
