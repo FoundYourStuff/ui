@@ -12,6 +12,7 @@ import { TagsComponent } from './tags/tags.component';
 import { TagCreateModalComponent } from './tag-create-modal/tag-create-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {  HttpClientModule } from '@angular/common/http';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {  HttpClientModule } from '@angular/common/http';
     LandingComponent,
     LoginComponent,
     TagsComponent,
-    TagCreateModalComponent
+    TagCreateModalComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
