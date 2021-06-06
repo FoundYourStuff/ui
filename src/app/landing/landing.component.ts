@@ -9,10 +9,10 @@ import { TagService } from '../services/tag.service';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
-  public userID: string = "";
-  public showCamera: boolean = false;
-  public popup: boolean = false;
-  public tagData = "";
+  public userID = '';
+  public showCamera = false;
+  public popup = false;
+  public tagData = '';
   constructor(private router: Router, private http: HttpClient, private tagService: TagService) { }
   ngOnInit(): void {
   }
@@ -20,23 +20,23 @@ export class LandingComponent implements OnInit {
     this.showCamera = true;
   }
   completeScan(event) {
-    let tag = this.getTagFromURL(event);
-    if(tag !== "" && tag !== null){
+    const tag = this.getTagFromURL(event);
+    if (tag !== '' && tag !== null){
       this.userID = tag;
       this.getTag();
     }
     else {
-      confirm("HEY BAD QR CODE");
+      confirm('HEY BAD QR CODE');
     }
     this.showCamera = false;
   }
-  getTagFromURL(url: string) : string {
+  getTagFromURL(url: string): string {
     try{
-      let tagURL = new URL(url);
-      return  tagURL.searchParams.get("id");
-    } 
+      const tagURL = new URL(url);
+      return  tagURL.searchParams.get('id');
+    }
     catch {
-      return "";
+      return '';
     }
   }
   inputEnter(event){
@@ -44,9 +44,11 @@ export class LandingComponent implements OnInit {
     this.getTag();
   }
   getTag(){
-    this.tagService.getTag('asd').then(data => {
-      this.tagData = data.name;
-      this.popup = true;
-    })
+    // this.tagService.getTags().then(data => {
+    //   this.tagData = data.name;
+    //   this.popup = true;
+    // })
+    this.tagData = 'stuff';
+    this.popup = true
   }
 }

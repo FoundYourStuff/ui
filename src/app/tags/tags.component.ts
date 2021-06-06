@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Tag } from '../models/tag';
+import { TagService } from '../services/tag.service';
 
 @Component({
   selector: 'app-tags',
@@ -6,14 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tags.component.scss']
 })
 export class TagsComponent implements OnInit {
-  public showTagCreate: boolean = false;
-  public tags = [{name: 'hello World'}];
+  public showTagCreate = false;
+  public tags: Tag[];
   public showModal = false;
-  constructor() { }
+  constructor(private tagService: TagService) {
+    this.tagService.getTags().subscribe(data => {
+      this.tags = data;
+    });
+   }
   addTag(tag){
     this.tags.push(tag);
   }
   ngOnInit(): void {
   }
-  
+  printTag(): void {
+
+  }
 }

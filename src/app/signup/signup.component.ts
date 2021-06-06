@@ -19,11 +19,11 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSubmit():void {
+  onSubmit(): void {
     this.signupForm.value.active = true;
     console.log('Data to send', this.signupForm.value);
-    this.http.post('http://found-your-stuff-api.herokuapp.com/users',this.signupForm.value).subscribe(res => {
+    this.http.post('http://found-your-stuff-api.herokuapp.com/users', this.signupForm.value).subscribe(res => {
       console.log('Response', res);
-    })
+    });
   }
 }
