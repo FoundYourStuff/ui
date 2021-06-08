@@ -1,10 +1,14 @@
 <div>
-    <span class="title" routerLink="/">FYT</span>
+    <span class="title" routerLink="/">FYS</span>
     <span class="material-icons icon" (click)="popupMenu()">
         menu
     </span>
     
 </div>
 <div class="popupMenu" *ngIf="showPopup">
-    <div>Login</div>
+    <div><a routerLink="login">Login</a></div>
+    <div><a routerLink="tags">Tags</a></div>
+</div>
+<div class="catcher" *ngIf="showPopup" (click)="popupMenu()">
+
 </div>

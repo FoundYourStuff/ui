@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 97vh;
+    width: 100vw;
+    align-items: center;
+    // background: #89a8c7;
+    position: absolute;
+    z-index: 1;
+    top: 5vh;
+    .controls {
+        position: absolute;
+        top: 90%;
+        left: 80%;
+        button {
+            border-radius: 50px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            background: #008000c4;
+            font-size: 32px;
+            display: grid;
+            place-items: center;
+            outline: none;
+        }
+    }
+}
+.new-tag {
+    position: absolute;
+    z-index: 50;
+    top: 50%;
+    left: 20%;
+    width: 60%;
+    height: 40%;
+    background: red;
+}
+#tags {
+    display: flexbox;
+    flex-direction: row;
+    .tag {
+        display: inline-flex;
+        width: 50vw;
+        height: 8vh;
+        background: white;
+        margin-top: 10px;
+    }
+}

@@ -13,7 +13,6 @@ export class BannerComponent implements OnInit {
   ngOnInit(): void {
   }
   popupMenu(){
-    this.router.navigate(['login']);
-    // this.showPopup = !this.showPopup;
+    this.showPopup = !this.showPopup;
   }
 }

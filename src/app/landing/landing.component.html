@@ -1,13 +1,13 @@
 <div class="scanner" *ngIf="showCamera">
     <zxing-scanner (scanSuccess)="completeScan($event)"></zxing-scanner>
 </div>
-<div class="container" *ngIf="!showCamera">
-    <div class="center">
+<div class="container" >
+    <div class="center" *ngIf="!showCamera && !tagData">
         <div class="phrase">
-            Helping dislocated thangs find their home.
+            Helping dislocated things find their home.
         </div>
         <div class="search">
-            <input type="text" [(value)]="userID">
+            <input type="text" [(value)]="tagID" (keyup.enter)="inputEnter($event)" placeholder="Type ID">
             <button (click)="camera();">
                 <span class="material-icons icon" >
                     photo_camera
@@ -15,4 +15,8 @@
             </button>
         </div>
     </div>
+    <div class="userFound" *ngIf="tagData">
+        <span>Contact this person at their email {{userData.email}}</span>
+    </div>
 </div>
+
