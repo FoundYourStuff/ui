@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { AccountService } from '../services/account.service';
 
 @Component({
   selector: 'app-login',
@@ -8,14 +9,14 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    userID: new FormControl(''),
   });
-  constructor() { }
+  constructor(private account: AccountService) { }
 
   ngOnInit(): void {
   }
   onSubmit(): void {
-
+    // this.account.userID = this.loginForm.get('userID');
+    
   }
 }

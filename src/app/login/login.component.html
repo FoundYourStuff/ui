@@ -1,12 +1,8 @@
 <div class="container">
     <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <label>
-            Email:
-            <input autofocus type="text" formControlName="email">
-        </label>
-        <label>
-            Password:
-            <input type="password" formControlName="password">
+            UserID:
+            <input autofocus type="text" formControlName="userID">
         </label>
         <button>Sign in</button>
         Don't have an account? <a routerLink="../signup">Sign up</a>

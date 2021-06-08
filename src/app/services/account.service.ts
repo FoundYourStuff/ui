@@ -9,4 +9,7 @@ export class AccountService {
   get userID(): string {
     return this.ID;
   }
+  set userID(id: string) {
+    this.ID = id;
+  }
 }
