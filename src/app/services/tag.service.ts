@@ -17,17 +17,18 @@ export class TagService {
   //     })
   //   });
   // }
-  getTag(id: string): Promise<Tag>{
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          name: 'swag',
-          user_id: '123',
-          active: true,
-          picture: 'Aundair'
-        });
-      });
-    });
+  getTag(id: string): Observable<Tag>{
+    return this.api.getTag(id);
+    // return new Promise((resolve) => {
+    //   setTimeout(() => {
+    //     resolve({
+    //       name: 'swag',
+    //       user_id: '123',
+    //       active: true,
+    //       picture: 'Aundair'
+    //     });
+    //   });
+    // });
   }
   addTag(tag: Tag){
     this.tags.push(tag);

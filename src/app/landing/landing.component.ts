@@ -23,7 +23,7 @@ export class LandingComponent implements OnInit {
     const tag = this.getTagFromURL(event);
     if (tag !== '' && tag !== null){
       this.userID = tag;
-      this.getTag();
+      this.getTag(this.userID);
     }
     else {
       confirm('HEY BAD QR CODE');
@@ -40,15 +40,18 @@ export class LandingComponent implements OnInit {
     }
   }
   inputEnter(event){
-    console.log(event.path[0].value);
-    this.getTag();
+    this.getTag(event.path[0].value);
   }
-  getTag(){
+  getTag(id: string){
+    this.tagService.getTag(id).subscribe(data => {
+      console.log(data);
+    }
+    );
     // this.tagService.getTags().then(data => {
     //   this.tagData = data.name;
     //   this.popup = true;
     // })
-    this.tagData = 'stuff';
-    this.popup = true
+    // this.tagData = 'stuff';
+    // this.popup = true
   }
 }

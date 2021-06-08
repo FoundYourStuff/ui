@@ -1,6 +1,6 @@
 export interface Tag {
     name: string;
-    user_id: string; // wat
-    active: boolean;
+    id: string;
     picture: string;
+    external_id: string;
 }
