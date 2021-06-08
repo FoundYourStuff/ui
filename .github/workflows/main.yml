@@ -1,34 +1,21 @@
-  
 name: Build and Deploy
-
 on:
   workflow_dispatch:
   push:
-    branches: [ prod ]
-
+    branches:
+      - prod
 jobs:
-  build_and_deploy:
-    runs-on: ubuntu-20.04
+  build:
+
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-      
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
+    - uses: actions/checkout@v2
+    - name: All things angular
+      uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.1 ## replace by latest version without it you will see Expected format {org}/{repo}[/path]@ref. Actual 'AhsanAyaz/angular-deploy-gh-pages-actions',Input string was not in a correct format.
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
-        aws-region: us-west-2
-
-    - name: setup Node
-      uses: actions/setup-node@v1
-      
-    - name: install angular and build
-      run: |
-        npm update
-        npm install -g @angular/cli > /dev/null
-        npm install
-        ng build --prod
-      
-    - name: deploy
-      run: 	aws s3 sync ./dist/stuff/ s3://fyt-website --delete
+        github_access_token: ${{ secrets.ACCESS_TOKEN }} # see the Configuration section for how you can create secrets
+        #build_configuration: staging # The build environment for the app. please look configurations in your angular.json
+        base_href: /ui/   # make sure this corresponds to https://<your_username>.github.io/<base_href>/
+        deploy_branch: website # The branch the action should deploy to.
+        angular_dist_build_folder: dist/stuff # The folder where your project is supposed to be after running ng build by the action.
