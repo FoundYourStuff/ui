@@ -1,0 +1,26 @@
+<div class="container">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">  
+        <label>
+            Name:
+            <input autofocus type="text" formControlName="name">
+        </label>
+        <label>
+            Email:
+            <input type="text" formControlName="email">
+        </label>
+        <label>
+            Phone number:
+            <input type="number" formControlName="phone_number">
+        </label>
+        <label>
+            Password:
+            <input type="password" formControlName="password">
+        </label>
+        <label>
+            Contact? (better name here):
+            <input type="checkbox" formControlName="contact">
+        </label>
+
+        <button type="submit">Sign up</button>
+    </form>
+</div>
