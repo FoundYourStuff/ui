@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Tag } from '../models/Tag.model';
+import { User } from '../models/User.model';
 import { TagService } from '../services/tag.service';
 
 @Component({
@@ -9,10 +11,10 @@ import { TagService } from '../services/tag.service';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
-  public userID = '';
+  public tagID = '';
   public showCamera = false;
   public popup = false;
-  public tagData = '';
+  public userData: User;
   constructor(private router: Router, private http: HttpClient, private tagService: TagService) { }
   ngOnInit(): void {
   }
@@ -22,8 +24,8 @@ export class LandingComponent implements OnInit {
   completeScan(event) {
     const tag = this.getTagFromURL(event);
     if (tag !== '' && tag !== null){
-      this.userID = tag;
-      this.getTag(this.userID);
+      this.tagID = tag;
+      this.getUserData(this.tagID);
     }
     else {
       confirm('HEY BAD QR CODE');
@@ -40,18 +42,9 @@ export class LandingComponent implements OnInit {
     }
   }
   inputEnter(event){
-    this.getTag(event.path[0].value);
+    this.getUserData(event.path[0].value);
   }
-  getTag(id: string){
-    this.tagService.getTag(id).subscribe(data => {
-      console.log(data);
-    }
-    );
-    // this.tagService.getTags().then(data => {
-    //   this.tagData = data.name;
-    //   this.popup = true;
-    // })
-    // this.tagData = 'stuff';
-    // this.popup = true
+  getUserData(id: string){
+    this.tagService.getTagUser(id).subscribe(data => {this.userData = data; });
   }
 }

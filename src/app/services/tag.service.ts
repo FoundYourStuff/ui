@@ -1,34 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Tag } from '../models/tag';
+import { Tag } from '../models/Tag.model';
 import { ApiService } from './api.service';
 import { AccountService } from './account.service';
+import { User } from '../models/User.model';
 @Injectable({
   providedIn: 'root'
 })
 export class TagService {
   tags: Tag[] = [];
-  constructor(private http: HttpClient, private api: ApiService, private account: AccountService) { }
-  // getTags() : Promise<Tag[]>{
-  //   return new Promise(resolve => {
-  //     setTimeout(()=>{
-  //       resolve(this.tags);
-  //     })
-  //   });
-  // }
+  constructor( private api: ApiService) { }
   getTag(id: string): Observable<Tag>{
     return this.api.getTag(id);
-    // return new Promise((resolve) => {
-    //   setTimeout(() => {
-    //     resolve({
-    //       name: 'swag',
-    //       user_id: '123',
-    //       active: true,
-    //       picture: 'Aundair'
-    //     });
-    //   });
-    // });
   }
   addTag(tag: Tag){
     this.tags.push(tag);
@@ -37,9 +21,12 @@ export class TagService {
     return 'hello';
   }
   getTags(): Observable<Tag[]> {
-    return this.http.get<Tag[]>(`${this.api.baseURL}/users/${this.account.userID}/tags`);
+    return this.api.getUserTags();
   }
   editTag(tagID: string): void {
 
+  }
+  getTagUser(id: string): Observable<User> {
+    return this.api.getTagUser(id);
   }
 }
