@@ -2,7 +2,7 @@
     <zxing-scanner (scanSuccess)="completeScan($event)"></zxing-scanner>
 </div>
 <div class="container" >
-    <div class="center" *ngIf="!showCamera && !tagData">
+    <div class="center" *ngIf="!showCamera && !userData">
         <div class="phrase">
             Helping dislocated things find their home.
         </div>
@@ -15,7 +15,7 @@
             </button>
         </div>
     </div>
-    <div class="userFound" *ngIf="tagData">
+    <div class="userFound" *ngIf="userData">
         <span>Contact this person at their email {{userData.email}}</span>
     </div>
 </div>
